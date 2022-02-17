@@ -6,6 +6,7 @@ const FistComponent = () => {
     console.log(b);
   };
   
+  console.log(1);
   a(1);
 
   return <div className="first-component">第一个组件</div>;
