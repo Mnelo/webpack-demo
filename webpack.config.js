@@ -39,17 +39,28 @@ module.exports = {
         ],
       },
       {
-        test: /\.js|jsx$/,
+        test: /\.(js|jsx|ts|tsx|mjs)$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: "babel-loader",
           options: {
-            presets: ["@babel/preset-env", "@babel/react"],
+            presets: [
+              "@babel/preset-env",
+              "@babel/react",
+              "@babel/preset-typescript",
+            ],
           },
         },
       },
+      // {
+      //   test:/\.(ts|tsx)$/,
+      //   use:['babel-loader','ts-loader']
+      // }
     ],
   },
   plugins: [new HtmlWebpackPlugin({ template: "./public/index.html" })],
+  resolve: {
+    extensions: [".ts", ".tsx", ".js", ".jsx"],
+  },
   mode: "development",
 };
